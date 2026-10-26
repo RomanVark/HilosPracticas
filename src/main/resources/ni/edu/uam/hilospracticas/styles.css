@@ -1,0 +1,19 @@
+.root {
+    -fx-font-family: "Segoe UI", "Arial", sans-serif;
+    -fx-background-color: #f4f7fb;
+}
+.cabecera { -fx-background-color: #152b48; }
+.cabecera .label { -fx-text-fill: #dce8f8; }
+.cabecera .titulo { -fx-font-size: 25px; -fx-font-weight: bold; -fx-text-fill: white; }
+.contenido { -fx-background-color: #f4f7fb; }
+.panel {
+    -fx-padding: 18px; -fx-background-color: white;
+    -fx-background-radius: 10px; -fx-border-color: #dfe7f0;
+    -fx-border-radius: 10px;
+}
+.principal { -fx-background-color: #176bd6; -fx-text-fill: white; -fx-font-weight: bold; }
+.dato { -fx-font-weight: bold; -fx-text-fill: #184575; }
+.total { -fx-font-weight: bold; -fx-font-size: 25px; -fx-text-fill: #147d67; }
+.subtitulo { -fx-font-weight: bold; -fx-font-size: 15px; }
+.text-area { -fx-font-family: "Consolas", monospace; -fx-font-size: 12px; }
+.pie { -fx-background-color: #e6edf6; }

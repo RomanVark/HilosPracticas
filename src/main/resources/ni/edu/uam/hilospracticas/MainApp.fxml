@@ -1,16 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="ni.edu.uam.hilospracticas.MainAppController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
-
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ni.edu.uam.hilospracticas.MainAppController"
+            stylesheets="@styles.css">
+    <top>
+        <VBox spacing="6" styleClass="cabecera">
+            <padding><Insets top="18" right="24" bottom="18" left="24"/></padding>
+            <Label text="Laboratorio de concurrencia" styleClass="titulo"/>
+            <Label text="Dos ventanillas · Thread, Runnable, sincronización y cancelación"/>
+        </VBox>
+    </top>
+    <center>
+        <VBox spacing="16" styleClass="contenido">
+            <padding><Insets top="20" right="24" bottom="20" left="24"/></padding>
+            <HBox alignment="CENTER_LEFT" spacing="12">
+                <Label text="Solicitudes por ventanilla:"/>
+                <TextField fx:id="campoOperaciones" text="1000" prefWidth="90"/>
+                <Label text="Pausa (ms):"/>
+                <TextField fx:id="campoPausa" text="5" prefWidth="70"/>
+                <Button fx:id="btnIniciar" text="Iniciar" onAction="#onIniciar" styleClass="principal"/>
+                <Button fx:id="btnDetener" text="Detener" onAction="#onDetener"/>
+            </HBox>
+            <GridPane hgap="14" vgap="12" styleClass="panel">
+                <Label text="Estado general" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <Label fx:id="etiquetaEstado" text="En espera" styleClass="dato" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                <Label text="Total completado" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                <Label fx:id="etiquetaContador" text="0" styleClass="total" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                <Label text="Ventanilla A" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                <Label fx:id="etiquetaHiloA" text="NEW" styleClass="dato" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                <Label text="Ventanilla B" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                <Label fx:id="etiquetaHiloB" text="NEW" styleClass="dato" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+            </GridPane>
+            <Label text="Registro de ejecución y transiciones de estados" styleClass="subtitulo"/>
+            <TextArea fx:id="areaRegistro" editable="false" wrapText="true" VBox.vgrow="ALWAYS"/>
+        </VBox>
+    </center>
+    <bottom>
+        <HBox styleClass="pie" alignment="CENTER_RIGHT">
+            <padding><Insets top="8" right="24" bottom="8" left="24"/></padding>
+            <Label text="Actualización agrupada cada 120 ms · Solo JavaFX modifica la interfaz"/>
+        </HBox>
+    </bottom>
+</BorderPane>
